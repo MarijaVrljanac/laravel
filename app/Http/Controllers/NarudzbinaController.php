@@ -45,12 +45,12 @@ class NarudzbinaController extends Controller
             'brojTelefona' => 'required',
             'adresa' => 'required|string|max:255',
             'proizvodID' => 'required'
-            //polje user_id ne stavljamo u validator jer ce to zapravo biti id ulogovanog korisnika jer je on kreirao porudzbinu
+            //polje user_id ne stavljamo u validator jer ce to zapravo biti id ulogovanog korisnika jer je on kreirao narudzbinu
         ]);
 
         if ($validator->fails()) 
             return response()->json($validator->errors());
-        $n = Porudzbina::create([
+        $n = Narudzbina::create([
             'broj' => $request->broj,
             'cena' => $request->cena,
             'brojTelefona' => $request->brojTelefona,
@@ -102,20 +102,20 @@ class NarudzbinaController extends Controller
             'brojTelefona' => 'required',
             'adresa' => 'required|string|max:255',
             'proizvodID' => 'required'
-            //polje user_id ne stavljamo u validator jer ce to zapravo biti id ulogovanog korisnika jer je on kreirao porudzbinu
+            //polje user_id ne stavljamo u validator jer ce to zapravo biti id ulogovanog korisnika jer je on kreirao narudzbinu
         ]);
 
-        $p =  Porudzbina::find($id);
-        if($p){
-            $p->adresaDostave = $request->adresaDostave;
-            $p->cena = $request->cena;
-            $p->status = $request->status;
-            $p->odeca_id = $request->odeca_id;
-            $p->save();
-            return response()->json(['Porudzbina uspesno izmenjena!', new PorudzbinaResource($p)]);
+        $n =  Narudzbina::find($id);
+        if($n){
+            $n->adresaDostave = $request->adresaDostave;
+            $n->cena = $request->cena;
+            $n->status = $request->status;
+            $n->beauty_id = $request->beauty_id;
+            $n->save();
+            return response()->json(['Narudzbina uspesno izmenjena!', new NarudzbinaResource($p)]);
 
         }else{
-            return response()->json('Ne postoji trazena porudzbina!');
+            return response()->json('Ne postoji trazena narudzbina!');
 
         }
     }

@@ -24,11 +24,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {//ako je korisnik 
     Route::get('/profiles', function (Request $request) { //ovo nam omogucava da prikazemo ulogovanog korisnika
         return auth()->user();
     });
-  //  Route::delete('porudzbine/{id}',[PorudzbinaController::class,'destroy']);
-    Route::resource('porudzbine', NarudzbinaController::class)->only(['update', 'store', 'destroy']);
-    
-   
-
+    Route::resource('narudzbine', NarudzbinaController::class)->only(['update', 'store', 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']); //ako je korisnik ulogovan moze da se odjavi
 });
 //metode koje mogu da vide svi korisnici

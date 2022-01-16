@@ -22,10 +22,10 @@ class NarudzbinaResource extends JsonResource
         return [
             'broj'=>$this->resource->broj,
             'cena' => $this->resource->cena,
-            'userID' => new UserResource(User::find($this->resource->user_id)),
+            'userID' => new UserResource(User::find($this->resource->userID)),
             'brojTelefona' => $this->resource->brojTelefona,
             'adresa' => $this->resource->adresa,
-            'proizvodID' => new BeautyResource(Beauty::find($this->resource->beauty_id))
+            'proizvodID' => new BeautyResource(Beauty::find($this->resource->proizvodID))
         ];
     }
 }
