@@ -26,7 +26,7 @@ class ChangeSifraToSifraProizvodaInBeautiesTable extends Migration
     public function down()
     {
         Schema::table('beauties', function (Blueprint $table) {
-            $table->renameColumn('sifra', 'sifraProizvoda');
+            $table->renameColumn('sifraProizvoda', 'sifra');
         });
     }
 }

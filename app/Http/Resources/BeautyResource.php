@@ -22,7 +22,6 @@ class BeautyResource extends JsonResource
             'naziv' => $this->resource->naziv,
             'sifra' => $this->resource->sifra,
             'kolicina' => $this->resource->kolicina,
-
             'kategorijaID' => new KategorijaResource(Kategorija::find($this->resource->kategorijaID))
         ];
     }
