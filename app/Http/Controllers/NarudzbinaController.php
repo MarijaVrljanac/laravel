@@ -102,7 +102,7 @@ class NarudzbinaController extends Controller
             'brojTelefona' => 'required',
             'adresa' => 'required|string|max:255',
             'proizvodID' => 'required'
-            //polje user_id ne stavljamo u validator jer ce to zapravo biti id ulogovanog korisnika jer je on kreirao narudzbinu
+            //polje userID ne stavljamo u validator jer ce to zapravo biti id ulogovanog korisnika jer je on kreirao narudzbinu
         ]);
 
         $n =  Narudzbina::find($id);
